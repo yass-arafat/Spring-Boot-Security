@@ -32,12 +32,15 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()
+//                .csrf().disable()
                 .authorizeRequests().antMatchers("/login").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
+//                .defaultSuccessUrl("/home", true)
                 .loginPage("/login").permitAll()
+                .and()
+                .httpBasic()
                 .and()
                 .logout().invalidateHttpSession(true)
                 .clearAuthentication(true)

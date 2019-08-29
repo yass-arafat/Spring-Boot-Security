@@ -7,9 +7,12 @@
 </head>
 
 <body>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <h1> Login</h1>
 ${SPRING_SECURITY_LAST_EXCEPTION.message}
-<form action="login" method="post">
+<form method="post">
+    <sec:csrfInput/>
+
     <table>
         <tr>
             <td>User:</td>
